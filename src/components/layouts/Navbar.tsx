@@ -4,13 +4,13 @@ import { Button } from "../ui/button";
 const Navbar = () =>{
     return (
         <header className="h-16">
-            <nav className="w-full h-full max-w-[1220px] px-[20px] bg-green-500 mx-auto flex justify-between ">
+            <nav className="w-full h-full max-w-[1220px] px-[20px] mx-auto flex justify-between ">
                 <span className="text-3xl">iRepair</span>
                 <ul className="space-x-5">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/">About</NavLink>
                     <Button>
-                        <NavLink to="/">About</NavLink>
+                        <NavLink to="/">Login</NavLink>
                     </Button>
                 </ul>
             </nav>
