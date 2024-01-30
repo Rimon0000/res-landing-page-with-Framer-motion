@@ -22,18 +22,24 @@ const introChildren = {
 }
 
 const laptop = {
-    initial: {y: 0},
-    animate: {y: 20, transition: {
-        duration: 1,
-        repeat: Infinity,
-        repeatType: "reverse",
-        ease: "easeInOut"
+    initial: {y: 0, rotate: 0, scale: 5},
+    animate: {y: 20, 
+        scale: 1,
+        rotate: -30,
+        transition: {
+            duration: 1.5,
+            y: {
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut"
+            }
     }}
 }
 
 const HeroSection = () =>{
     return (
-        <Container className="h-[calc(100vh-64px)] place-content-center grid grid-cols-1 lg:grid-cols-2">
+        <Container className="h-[calc(100vh-64px)] place-content-center grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
             <motion.div variants={intro} initial="hidden" animate="visible">
                 <motion.h1 variants={introChildren} className="text-5xl lg:text-8xl font-bold text-nowrap">
                     <span className="text-gray">Don't worry,</span> <br />
@@ -48,7 +54,7 @@ const HeroSection = () =>{
             </motion.div>
 
             <motion.div className="w-3/4 lg:w-4/5 mx-auto" variants={laptop} initial="initial" animate="animate">
-                <img className="-rotate-[30deg] object-contain pt-5 rounded-4xl p-10" src={macbook} alt="" />
+                <img className=" object-contain pt-5 rounded-4xl p-10" src={macbook} alt="" />
 
             </motion.div>
         </Container>
