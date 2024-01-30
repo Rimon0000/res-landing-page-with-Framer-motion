@@ -19,7 +19,16 @@ const introChildren = {
         type: "spring",
         bounce: 0.6
     }}
+}
 
+const laptop = {
+    initial: {y: 0},
+    animate: {y: 20, transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut"
+    }}
 }
 
 const HeroSection = () =>{
@@ -37,10 +46,11 @@ const HeroSection = () =>{
                 <Button>Book a Service</Button>
                 </motion.div>
             </motion.div>
-            <div className="w-3/4 lg:w-4/5 mx-auto">
-                <img className="-rotate-[30deg] object-contain pt-5 rounded-2xl" src={macbook} alt="" />
 
-            </div>
+            <motion.div className="w-3/4 lg:w-4/5 mx-auto" variants={laptop} initial="initial" animate="animate">
+                <img className="-rotate-[30deg] object-contain pt-5 rounded-4xl p-10" src={macbook} alt="" />
+
+            </motion.div>
         </Container>
     )
 }
