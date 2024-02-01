@@ -8,7 +8,7 @@ const ServiceList = () =>{
         queryFn: getServices
     })
 
-    console.log({isLoading, data});
+    console.log({isLoading, data, isError});
 
     if(isLoading){
         return <p>Loading .....</p>
@@ -18,7 +18,7 @@ const ServiceList = () =>{
     return (
         <div>
             {
-                data.data.map((item) => <h1>{item.name}</h1>)
+                data?.data?.map((item) => <h1>{item?.name}</h1>)
             }
         </div>
     )
