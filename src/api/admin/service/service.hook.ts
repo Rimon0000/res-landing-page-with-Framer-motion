@@ -14,7 +14,9 @@ export const useGetServices = () =>{
             }))
 
             return services;
-        }
+        },
+        // gcTime: 5000,                            //5s for deleting cache
+        // staleTime: 30000/Infinity,               //Infinity -- stop fetching request
     })
 
     return servicesData;
