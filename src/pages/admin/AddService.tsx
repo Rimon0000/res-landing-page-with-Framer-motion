@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
 
 const AddService = () =>{
     const [serviceName, setServiceName] = useState("")
+
+    //for handling cache
+    const queryClient = useQueryClient()
 
     const {mutateAsync, isError, isSuccess} = useMutation({
         mutationFn: async(data) =>{
@@ -14,7 +17,10 @@ const AddService = () =>{
                     'Content-Type': 'application/json'
                 }
             })
-        }
+        },
+        onSuccess: () =>{                                          //for handling cache
+            queryClient.invalidateQueries({queryKey: ['services']})
+        },
     })
 
     console.log({isError, isSuccess});

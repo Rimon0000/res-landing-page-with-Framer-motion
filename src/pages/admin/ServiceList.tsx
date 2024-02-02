@@ -1,4 +1,3 @@
-import { getServices } from "@/api/admin/service/service.api";
 import { useGetServices } from "@/api/admin/service/service.hook";
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
